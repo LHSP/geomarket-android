@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Geomarket</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="login">Login</string>
+    <string name="senha">Senha</string>
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="FalhaAoLogar">Não foi possível fazer o login. Por favor reabra o aplicativo para tentar novamente.</string>
+    <string name="FalhaAoCadastrar">Não foi possível cadastrar o seu usário. Por favor reabra o aplicativo.</string>
+    <string name="oportunidades">Novas oportunidades!</string>
+    <string name="adicionar_loja">+ Loja</string>
+    <string name="minhas_oportunidades">Oportunidades salvas</string>
+    <string name="txtLoading">Preparando Tudo</string>
+    <string name="cadastrar_estabelecimento_titulo">Cadastrar Loja</string>
+    <string name="cadastrar_estabelecimento_button">Cadastrar!</string>
+    <string name="digite_codigo_estabelecimento">Por favor, digite o código do estabelecimento</string>
+    <string name="erro_web_request">Ocorreu um erro ao cadastrar o estabelecimento. Por favor tente novamente.</string>
+
+</resources>
