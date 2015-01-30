@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.geomarket.R;
@@ -30,15 +31,19 @@ public class PropagandaListAdapter extends ArrayAdapter<Propaganda> {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup group) {
+    public LinearLayout getView(int position, View convertView, ViewGroup group) {
 
-        View v = convertView;
+        LinearLayout v = (LinearLayout)convertView;
 
         if (v == null) {
-
             LayoutInflater vi;
             vi = LayoutInflater.from(getContext());
-            v = vi.inflate(R.layout.propaganda_list_item, null);
+
+            LinearLayout root = new LinearLayout(getContext());
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+            root.setLayoutParams(params);
+            root.setOrientation(LinearLayout.VERTICAL);
+            v = (LinearLayout)vi.inflate(R.layout.propaganda_list_item, root, true);
 
         }
 
@@ -67,6 +72,8 @@ public class PropagandaListAdapter extends ArrayAdapter<Propaganda> {
                 tvEstabelecimentoPropagandaListItem.setText("" + p.getEstabId());
             }
         }
+
+        v.setOnTouchListener(new SwipeDetector());
 
         return v;
 

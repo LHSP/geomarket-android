@@ -1,6 +1,5 @@
 package com.geomarket;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -10,6 +9,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -20,7 +20,9 @@ import android.widget.Toast;
 
 import com.geomarket.domain.UsuarioManager;
 import com.geomarket.infrastructure.Callback;
+import com.geomarket.infrastructure.OnSwipeTouchListener;
 import com.geomarket.infrastructure.PropagandaListAdapter;
+import com.geomarket.infrastructure.SwipeDetector;
 import com.geomarket.model.Propaganda;
 
 import java.util.ArrayList;
@@ -80,6 +82,33 @@ public class Main extends Activity {
             propagandas.add(propaganda);
         }
         lvOportunidades.setAdapter(new PropagandaListAdapter(getApplicationContext(), R.layout.propaganda_list_item, propagandas));
+
+
+        final SwipeDetector swipeDetector = new SwipeDetector();
+        final View[] listViewItem = {null};
+        lvOportunidades.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                return false;
+            }
+        });
+/*
+        lvOportunidades.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                listViewItem[0] = adapterView.getSelectedView().findViewById(R.id.rlPropaganda);
+                view.setTranslationX(swipeDetector.deltaX);
+
+                if (swipeDetector.swipeDetected()) {
+                    if (swipeDetector.getAction() == SwipeDetector.Action.RL) {
+                        view.setTranslationX(swipeDetector.deltaX);
+                    } else {
+                        view.setTranslationX(swipeDetector.deltaX);
+                    }
+                }
+            }
+        });
+        */
 
         btnMaisLoja.setOnClickListener(new View.OnClickListener() {
             @Override
